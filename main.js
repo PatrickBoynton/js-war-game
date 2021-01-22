@@ -37,6 +37,7 @@ shuffle(cards);
 const hand1 = cards.splice(0, 26);
 const hand2 = cards.splice(0, 26);
 
-// Test to see if splice does what I want.
-// console.log(hand1.filter(x => x === 1));
-// console.log(hand2.filter(x => x === 1));
+const player1 = new Player(hand1, "Patrick");
+const player2 = new Player(hand2, "Chad");
+
+console.log(player1.hand.pop() > player2.hand.pop());
