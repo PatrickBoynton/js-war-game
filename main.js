@@ -9,8 +9,11 @@ function Deck() {
     this.clubs = [...this.hearts]
 }
 
-let deck = new Deck();
-const cards = [...deck.hearts, ...deck.diamonds, ...deck.spades, ...deck.clubs];
+function Player(hand, name, hasWon=false) {
+  this.hand = hand,
+  this.name = name,
+  this.hasWon = hasWon
+}
 
 function shuffle(array) {
   // reverses the sort.
@@ -23,9 +26,17 @@ function shuffle(array) {
     array[j] = temporaryValue;
   }
 
-
   return array;
 }
 
+let deck = new Deck();
+const cards = [...deck.hearts, ...deck.diamonds, ...deck.spades, ...deck.clubs];
 
-console.log(shuffle(cards));
+shuffle(cards);
+
+const hand1 = cards.splice(0, 26);
+const hand2 = cards.splice(0, 26);
+
+// Test to see if splice does what I want.
+// console.log(hand1.filter(x => x === 1));
+// console.log(hand2.filter(x => x === 1));
