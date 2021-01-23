@@ -2,11 +2,22 @@
 //
 // console.log(`Welcome ${input} Let's play war!`);
 
+function Card(value, name, suit) {
+  this.value = value;
+  this.name = name;
+  this.suit = suit;
+}
+
 function Deck() {
-    this.hearts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, {11:"J"}, {12:"Q"}, {13:"K"}],
-    this.diamonds = [...this.hearts],
-    this.spades = [...this.hearts],
-    this.clubs = [...this.hearts]
+  this.names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+  this.suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+  this.cards = [];
+
+  for (let s = 0; s < this.suits.length; s++) {
+    for (var n = 0; n < this.names.length; n++) {
+      this.cards.push(new Card(n + 1, this.names[n], this.suits[s]));
+    }
+  }
 }
 
 function Player(hand, name, hasWon=false) {
@@ -29,25 +40,13 @@ function shuffle(array) {
   return array;
 }
 
-let deck = new Deck();
-const cards = [...deck.hearts, ...deck.diamonds, ...deck.spades, ...deck.clubs];
+const deck = new Deck();
+
+let cards = deck.cards;
 
 shuffle(cards);
 
-const hand1 = cards.splice(0, 26);
-const hand2 = cards.splice(0, 26);
+const player1Hand = cards.pop();
+const player2Hand = cards.pop();
 
-const player1 = new Player(hand1, "Patrick");
-const player2 = new Player(hand2, "Chad");
-
-const player1Card = hand1.pop();
-const player2Card = hand2.pop();
-
-
-if (player1Card === player2Card) {
-  console.log("War were declared!", player1Card, player2Card);
-} else if (player1Card > player2Card) {
-  console.log("Player 1 gets both cards", player1Card, player2Card);
-} else {
-  console.log("player 2 gets both cards", player1Card, player2Card);
-}
+console.log(player1Hand, player2Hand);
