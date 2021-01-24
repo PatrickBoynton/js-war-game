@@ -23,12 +23,6 @@ function Deck() {
   }
 }
 
-function Player(hand, name, hasWon=false) {
-  this.hand = hand,
-  this.name = name,
-  this.hasWon = hasWon
-}
-
 function shuffle(array) {
   // reverses the sort.
   // array.sort(() => Math.random() - 1);
