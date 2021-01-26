@@ -1,6 +1,7 @@
-// const input = prompt("Welcome, what is your name?");
-//
-// console.log(`Welcome ${input} Let's play war!`);
+const player1 = prompt("Welcome, what is your name?");
+const player2 = prompt("Welcome player 2, what is your name?");
+
+console.log(`Welcome ${player1}, and ${player2} Let's play war!`);
 
 // Found an object oriented way of describing a card and deck.
 // Uses composition to build up a deck out of cards.
@@ -89,23 +90,22 @@ while (player1Hand.length > 0 || player2Hand.length > 0) {
   }
   console.log(player1Hand.length + player2Hand.length);
   } else if (player1Card.value > player2Card.value) {
-    console.log(`Player 1 won: ${player1Card.value} of ${player1Card.suit} and ${player2Card.value} of ${player2Card.suit}`);
+    console.log(`${player1} won: ${player1Card.value} of ${player1Card.suit} and ${player2Card.value} of ${player2Card.suit}`);
 
     player1Hand.unshift(player1Card, player2Card);
     console.log(player1Hand.length);
     console.log(player2Hand.length);
     console.log(player1Hand.length + player2Hand.length);
   } else if(player1Card.value < player2Card.value){
-    console.log(`Player 2 won: ${player1Card.value} of ${player1Card.suit} and ${player2Card.value} of ${player2Card.suit}`);
+    console.log(`${player2} won: ${player1Card.value} of ${player1Card.suit} and ${player2Card.value} of ${player2Card.suit}`);
 
     player2Hand.unshift(player2Card, player2Card);
     console.log(player1Hand.length);
     console.log(player2Hand.length);
     console.log(player1Hand.length + player2Hand.length);
   }
-  if (player1Hand.length + player2Hand.length === 52) {
+  
     player1Card = player1Hand.pop();
     player2Card = player2Hand.pop();
-  }
 
 }
