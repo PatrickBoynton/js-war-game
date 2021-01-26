@@ -53,9 +53,8 @@ let player2Cards = [];
 
 let player1Card = player1Hand.pop();
 let player2Card = player2Hand.pop();
-let i = 100;
 
-while (player1Hand.length > 0 || player2Hand.length > 0) {
+while (player1Hand.length > 0 && player2Hand.length > 0) {
   if (player1Card.value === player2Card.value) {
     let player1NewCard = player1Hand.pop();
     let player2NewCard = player2Hand.pop();
@@ -104,7 +103,7 @@ while (player1Hand.length > 0 || player2Hand.length > 0) {
     console.log(player2Hand.length);
     console.log(player1Hand.length + player2Hand.length);
   }
-  
+
     player1Card = player1Hand.pop();
     player2Card = player2Hand.pop();
 
