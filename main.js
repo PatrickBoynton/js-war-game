@@ -106,5 +106,10 @@ while (player1Hand.length > 0 && player2Hand.length > 0) {
 
     player1Card = player1Hand.pop();
     player2Card = player2Hand.pop();
+}
 
+if (player1Hand.length < 0) {
+  alert(`${player2} won the game!`);
+} else {
+  alert(`${player1} won the game!`);
 }
